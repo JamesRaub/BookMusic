@@ -1,15 +1,5 @@
 
 
-document.onkeydown = function(e) {
-    e = e || window.event;
-    if (e.keyCode == '37') {
-        changeText(-1) //left <- show Prev image
-    } else if (e.keyCode == '39') {
-        // right -> show next image
-        changeText()
-    }
-}
-
 function populateList(combinedSentences){
   // var combinedSentences =
   window.combinedSentences = combinedSentences;
@@ -30,6 +20,9 @@ function callServer(url){
     success: function(data){
       window.data = data;
       var data = JSON.parse(data);
+      console.log("The Beatles are Awesome/n/n/n/n/n");
+
+      console.log(data);        // awfj;jljl;al;j;iaij;jas;ioj;fw;joioin;wefKFJJSADFJLKFSJFSJKLSDLKJFDL
       var sentences = data.sentences;
       var averages = data.averages;
       window.averages = averages;
@@ -42,8 +35,20 @@ function callServer(url){
     }
   });
 }
+
 $(document).ready(function(){
   $("#send").click( function(event){
+    // alert();
+    event.preventDefault();
+    var url = $("#txt_name").val();
+  //  console.log("Url: "+url);
+    callServer(url);
+    // populateList()
+
+
+  });
+
+  /*$('body').keyDown( function(event){
     // alert();
     event.preventDefault();
     var url = $("#txt_name").val();
@@ -52,7 +57,9 @@ $(document).ready(function(){
     // populateList()
 
 
-  });
+  });*/
+
+
 
   $("#left").click(function(){
     var newIndex = window.currentIndex - 1;
@@ -80,4 +87,22 @@ $(document).ready(function(){
     $("#sadness").html(window.averages[window.currentIndex].sadness);
 
   });
+
+  /*$('body').keydown(function(e) {
+    console.log("Something was pressed");
+    if (e.key == "ArrowRight") {
+      console.log("right click");
+    }
+
+    if (e.key == "ArrowLeft") {
+      console.log("left click");
+    }
+  });*/
+
+
+
+
+
+
+
 });

@@ -61,7 +61,7 @@ function calculateEmotionsAverage(emotionArray){
     'sadness': 0
   }
   var emotions = Object.keys(averages);
-  console.log(emotions);
+  //console.log(emotions);
   for(var i = 0; i < emotionArray.length; i++){
 
     for(var j = 0; j < emotionArray[i].length; j++){
@@ -75,7 +75,7 @@ function calculateEmotionsAverage(emotionArray){
   averages['fear'] = averages['fear'] / emotionArray.length;
   averages['joy'] = averages['joy'] / emotionArray.length;
   averages['sadness'] = averages['sadness'] / emotionArray.length;
-  console.log(averages);
+  //console.log(averages);
 //   console.log(averages);
   return averages;
 }
@@ -84,7 +84,7 @@ function obtainSentencesFromTone(tone){
   var sentences = [];
   // console.log(tone.sentences_tone[10].tone_categories);
   var emotional_tones = []
-  console.log(tone.sentences_tone.length)
+  //console.log(tone.sentences_tone.length)
   for(var i = 0; i < tone.sentences_tone.length; i ++){
     var tmp = tone.sentences_tone[i].text;
 
@@ -111,7 +111,7 @@ function obtainSentencesFromTone(tone){
   var averages = newEmotions.map(function(element){
     return calculateEmotionsAverage(element);
   });
-  console.log(averages);
+  //console.log(averages);
   return { sentences: newSentences, averages: averages };
 }
 
@@ -137,18 +137,18 @@ function readText(req, res, text) { // req, res, url){
             "fear": null,
             "joy": null,
             "sadness": null
-          };
+          });
 
           for (var element in data) {
-            if (element.["tone_id"] == "anger") {
+            if (element["tone_id"] == "anger") {
               values.anger == element.score;
-            } else if (element.["tone_id"] == "disgust") {
+            } else if (element["tone_id"] == "disgust") {
               values.disgust == element.score;
-            } else if (element.["tone_id"] == "fear") {
+            } else if (element["tone_id"] == "fear") {
               values.fear == element.score;
-            } else if (element.["tone_id"] == "joy") {
+            } else if (element["tone_id"] == "joy") {
               values.joy == element.score;
-            } else if (element.["tone_id"] == "sadness") {
+            } else if (element["tone_id"] == "sadness") {
               values.sadness == element.score;
             }
           }
@@ -157,6 +157,11 @@ function readText(req, res, text) { // req, res, url){
 
           searchTracks(musicValues, function(err, out) {
             data.url = out;
+            data.bug = "beetle";
+
+            var result = JSON.stringify(data, null, 2);
+            //console.log(result);
+            res.send(result);
           });
 
 
@@ -164,15 +169,13 @@ function readText(req, res, text) { // req, res, url){
           // console.log(data.emotional_tones);
           //used for testing
           //image scrolling
-          var result = JSON.stringify(data, null, 2);
-          //console.log(result);
-          res.send(result);
+
        }//else
     });
   // });
 }
 
-app.post('/subscribe', function(req, res) {
+app.post('/subscribe', function(req, rest) {
   // var url = req.query['name'];
   // if(url){
   //   readText(req, res, url);
@@ -183,7 +186,7 @@ app.post('/subscribe', function(req, res) {
       res.send('No files were uploaded.');
       return;
   }
-  console.log(req.files);
+  //console.log(req.files);
   var sampleFile = req.files.sampleFile;
   sampleFile.mv('random.txt', function(err) {
       if (err) {
