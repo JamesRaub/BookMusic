@@ -21,10 +21,10 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "path": "^0.12.7",
-    "watson-developer-cloud": "^0.0.0",
-    "lodash": "^0.0.0",
+    "watson-developer-cloud": "2.2.0",
+    "lodash": "2.14.x",
     "express-fileupload": "^0.0.0",
-    "request": "^0.0.0",
-    "request-promise": "^0.0.0"
+    "request": "2.14.x",
+    "request-promise": "2.14.x"
   }
 }
