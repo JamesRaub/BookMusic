@@ -2,9 +2,9 @@
   "name": "bookmusic",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "controllers/index.js",
   "scripts": {
-    "start": "controllers/index.js",
+    "start": "node controllers/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
