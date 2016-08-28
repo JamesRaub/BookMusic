@@ -5,6 +5,9 @@
   <script type="text/javascript" src="static/jquery-3.1.0.js"></script>
   <script type="text/javascript" src="static/bookDownload.js"></script>
   <script type="text/javascript" src="static/bookDisplay.js"></script>
+  <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+
+
 
 </head>
 
@@ -15,7 +18,7 @@
 <form name ="subscribe" id="subscribe_frm" action="#">
 
 Enter URL <input type="text" name="name" id="txt_name" />
-
+Enter File<input type="file" name="sampleFile" id="file"/>
 <input type="submit" value="Submit!" id="send"/>
 </form>
 
@@ -27,10 +30,17 @@ Enter URL <input type="text" name="name" id="txt_name" />
 <div id="left">LEFT</div>
 </button>
 
-------------
+
 
 <button type="button" class="btn btn-danger">
 <div id="right">RIGHT</div>
 </button>
+
+<br>
+Anger: <span id="anger"></span><br>
+Disgust: <span id="disgust"></span><br>
+Fear: <span id="fear"></span><br>
+Joy: <span id="joy"></span><br>
+Sadness: <span id="sadness"></span><br>
 
 </body>
