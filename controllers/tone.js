@@ -11,13 +11,20 @@ var tone_analyzer = new ToneAnalyzerV3({
 var url="https://ia801405.us.archive.org/18/items/alicesadventures19033gut/19033.txt";
 request(url)
 .then(function (text) {
+
+  //var split = text.match(/(.{1,2000})/g);
+  //console.log(split[40]);
   tone_analyzer.tone({ text: text },
     function(err, tone) {
       if (err)
         console.log(err);
       else
+         //console.log(text);
+        var tones = JSON.stringify(tone, null, 2);
+
+        //used for testing
         console.log(JSON.stringify(tone, null, 2));
-        console.log(text);
+
   });
 })
 // fs.readFileSync(url).toString();
