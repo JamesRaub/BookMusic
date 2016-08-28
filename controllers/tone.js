@@ -13,26 +13,42 @@ var tone_analyzer = new ToneAnalyzerV3({
 
 var app = express();
 
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
 
 app.get('/subscribe', function(req, res) {
   var url = req.query['name'];
-  
+
   request(url)
   .then(function (text) {
 
-    //var split = text.match(/(.{1,2000})/g);
+    var split = text.match(/(.{1,2000})/g);
+    console.log(split);
+
     //console.log(split[40]);
     tone_analyzer.tone({ text: text },
       function(err, tone) {
-        if (err)
+        if (err) {
           console.log(err);
-        else
+        }
+        else {
            //console.log(text);
-          var tones = JSON.stringify(tone, null, 2);
+          // var tones = JSON.stringify(tone, null, 2);
 
+          var sentences = [];
+
+          for(var i = 0; i < tone.sentences_tone.length; i ++){
+            var tmp = tone.sentences_tone[i].text;
+            tmp = tmp.replaceAll("\r","").replaceAll("\n","").replaceAll('\"','').replaceAll("[",'').replaceAll(']',"");
+            sentences.push(tmp);
+          }
           //used for testing
-          console.log(JSON.stringify(tone, null, 2));
-          res.send(JSON.stringify(tone, null, 2));
+          var result = JSON.stringify(sentences, null, 2);
+          console.log(result);
+          res.send(result);
+       }
     });
   });
 });
