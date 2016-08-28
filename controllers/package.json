@@ -11,6 +11,7 @@
   "dependencies": {
     "cmd": "^0.1.0",
     "express": "^4.14.0",
-    "lodash": "^4.15.0"
+    "lodash": "^4.15.0",
+    "spotify-web-api-node": "^2.3.5"
   }
 }
