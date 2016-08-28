@@ -16,7 +16,7 @@ var app = express();
 
 app.get('/subscribe', function(req, res) {
   var url = req.query['name'];
-  res.send("WHATEVER");
+  
   request(url)
   .then(function (text) {
 
@@ -32,7 +32,7 @@ app.get('/subscribe', function(req, res) {
 
           //used for testing
           console.log(JSON.stringify(tone, null, 2));
-
+          res.send(JSON.stringify(tone, null, 2));
     });
   });
 });
