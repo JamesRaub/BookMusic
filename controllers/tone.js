@@ -13,6 +13,9 @@ var tone_analyzer = new ToneAnalyzerV3({
   version_date: '2016-05-19'
 });
 
+var searchTracks = require("./BookMusicTemp/search.js");
+var getMusicValues = require("./BookMusicTemp/getValues.js");
+
 var app = express();
 
 
@@ -125,6 +128,39 @@ function readText(req, res, text) { // req, res, url){
         else {
           // console.log(tone);
           var data = obtainSentencesFromTone(tone);
+
+
+          // Feed Averages Into Music Calculation
+          var values = getValues({
+            "anger": null,
+            "disgust": null,
+            "fear": null,
+            "joy": null,
+            "sadness": null
+          };
+
+          for (var element in data) {
+            if (element.["tone_id"] == "anger") {
+              values.anger == element.score;
+            } else if (element.["tone_id"] == "disgust") {
+              values.disgust == element.score;
+            } else if (element.["tone_id"] == "fear") {
+              values.fear == element.score;
+            } else if (element.["tone_id"] == "joy") {
+              values.joy == element.score;
+            } else if (element.["tone_id"] == "sadness") {
+              values.sadness == element.score;
+            }
+          }
+
+          var musicValues = getMusicValues(values);
+
+          searchTracks(musicValues, function(err, out) {
+            data.url = out;
+          });
+
+
+
           // console.log(data.emotional_tones);
           //used for testing
           //image scrolling
