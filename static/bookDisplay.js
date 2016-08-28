@@ -32,6 +32,9 @@ function callServer(url){
       $("#fear").html(window.averages[window.currentIndex].fear);
       $("#joy").html(window.averages[window.currentIndex].joy);
       $("#sadness").html(window.averages[window.currentIndex].sadness);
+      $("#spotiflier").attr('src', ("https://embed.spotify.com/?uri=spotify%3Atrack%3A" + data.url));
+      setTimeout(function() {var l = $('#body > div.page > header > div.wrapper > div.entity.full-width > div.entity-info.media > div.media-img > button');
+      l.click();}, 200);
     }
   });
 }

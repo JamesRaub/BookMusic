@@ -61,7 +61,7 @@ function calculateEmotionsAverage(emotionArray){
     'sadness': 0
   }
   var emotions = Object.keys(averages);
-  console.log(emotions);
+  // console.log(emotions);////////////////////////////////
   for(var i = 0; i < emotionArray.length; i++){
 
     for(var j = 0; j < emotionArray[i].length; j++){
@@ -75,7 +75,7 @@ function calculateEmotionsAverage(emotionArray){
   averages['fear'] = averages['fear'] / emotionArray.length;
   averages['joy'] = averages['joy'] / emotionArray.length;
   averages['sadness'] = averages['sadness'] / emotionArray.length;
-  console.log(averages);
+  // console.log(averages);//////////////////////////
 //   console.log(averages);
   return averages;
 }
@@ -84,7 +84,7 @@ function obtainSentencesFromTone(tone){
   var sentences = [];
   // console.log(tone.sentences_tone[10].tone_categories);
   var emotional_tones = []
-  console.log(tone.sentences_tone.length)
+  // console.log(tone.sentences_tone.length)//////////////////
   for(var i = 0; i < tone.sentences_tone.length; i ++){
     var tmp = tone.sentences_tone[i].text;
 
@@ -92,7 +92,7 @@ function obtainSentencesFromTone(tone){
     sentences.push(tmp);
     var tmp_tone = tone.sentences_tone[i].tone_categories[0];
     if(tmp_tone){
-      console.log(tmp_tone);
+      // console.log(tmp_tone);//////////////////////////////
       // console.log(tmp_tone.tones);
       emotional_tones.push(tmp_tone.tones);
     } else {
@@ -111,7 +111,7 @@ function obtainSentencesFromTone(tone){
   var averages = newEmotions.map(function(element){
     return calculateEmotionsAverage(element);
   });
-  console.log(averages);
+  // console.log(averages);/////////////////////
   return { sentences: newSentences, averages: averages };
 }
 
@@ -120,12 +120,16 @@ function readText(req, res, text) { // req, res, url){
   // request({ uri: url })
   // .then(function (text) {
     tone_analyzer.tone({ text: text },
+
       function(err, tone) {
+
         if (err) {
           console.log(err);
           res.send("Error");
         }
         else {
+          console.log("cccccccccccccccccccccccccc");
+
           // console.log(tone);
           var data = obtainSentencesFromTone(tone);
           // console.log(data.emotional_tones);
@@ -159,13 +163,17 @@ function readText(req, res, text) { // req, res, url){
 
           var musicValues = getMusicValues(values);
 
+          console.log("dddddddddddddddddddddddddddd");
+
           searchTracks(musicValues, function(err, out) {
+
+            console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
             data.url = out;
             data.bug = "beetle";
 
 
 
-
+            console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
             console.log(data);
             var result = JSON.stringify(data, null, 2);
