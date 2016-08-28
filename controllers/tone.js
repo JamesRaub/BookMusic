@@ -1,5 +1,6 @@
 "use strict";
 
+
 var express = require("express");
 var _ = require('lodash');
 var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');

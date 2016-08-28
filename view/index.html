@@ -6,19 +6,19 @@
   <script type="text/javascript" src="static/bookDownload.js"></script>
   <script type="text/javascript" src="static/bookDisplay.js"></script>
   <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
-
+  <script type="text/javascript"src="./static/dropzone.js"></script>
 
 
 </head>
 
 
-<body>
+<body background style='background-image:url(../static/upfeathers.png)'>
 <h1> Welcome to BookMusic</h1>
 
-<form name ="subscribe" id="subscribe_frm" action="#">
+<form name ="subscribe" id="subscribe_frm" action="/file-upload" class="dropzone">
 
-Enter URL <input type="text" name="name" id="txt_name" />
-Enter File<input type="file" name="sampleFile" id="file"/>
+<!--Enter URL <input type="text" name="name" id="txt_name" />-->
+<input type="file" name="sampleFile" id="file"/>
 <input type="submit" value="Submit!" id="send"/>
 </form>
 
@@ -42,5 +42,8 @@ Disgust: <span id="disgust"></span><br>
 Fear: <span id="fear"></span><br>
 Joy: <span id="joy"></span><br>
 Sadness: <span id="sadness"></span><br>
+
+
+<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Aqlmhuge%3Aplaylist%3A6Df19VKaShrdWrAnHinwVO" width="800" height="100" frameborder="0" allowtransparency="true" />
 
 </body>

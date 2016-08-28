@@ -20,7 +20,7 @@ function populateList(combinedSentences){
 
 function callServer(url){
   var formData = new FormData();
-  formData.append('sampleFile', $("#file")[0].files[0]);
+  formData.append('sampleFile', $("input[type=file]")[0].files[0]);
   $.ajax({
     method: 'POST',
     data: formData,
