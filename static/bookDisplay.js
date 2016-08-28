@@ -65,6 +65,9 @@ $(document).ready(function(){
 
 
   $("#left").click(function(){
+    console.log("Left Click");
+    callServer();
+    console.log("Server called");
     var newIndex = window.currentIndex - 1;
     if(newIndex < 0)
       newIndex = window.combinedSentences.length -1;
@@ -79,6 +82,11 @@ $(document).ready(function(){
   });
 
   $("#right").click(function(){
+
+
+    console.log("Right Click");
+    callServer();
+    console.log("Server called");
     var newIndex = 0;
     newIndex = (window.currentIndex + 1) % ( window.combinedSentences.length);
     window.currentIndex = newIndex;
