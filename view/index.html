@@ -1,21 +1,36 @@
 <!DOCTYPE HTML>
 <head>
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <script type="text/javascript" src="/controllers/tone.js"></script>
-  <script type="text/javascript" src="/controllers/bookDownload.js"></script>
-  <script type="text/javascript" src="/controllers/bookDisplay.js"></script>
+  <link rel="stylesheet" href="static/bootstrap/css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="static/style.css" type="text/css">
+  <script type="text/javascript" src="static/jquery-3.1.0.js"></script>
+  <script type="text/javascript" src="static/bookDownload.js"></script>
+  <script type="text/javascript" src="static/bookDisplay.js"></script>
+
 </head>
 
 
 <body>
 <h1> Welcome to BookMusic</h1>
 
-<form name ="subscribe" id="subscribe_frm" action="/subscribe">
+<form name ="subscribe" id="subscribe_frm" action="#">
 
 Enter URL <input type="text" name="name" id="txt_name" />
 
-<input type="submit" value="Submit!" />
+<input type="submit" value="Submit!" id="send"/>
 </form>
 
+<ul id="sentences_display">
+  <li id="content"></li>
+</ul>
+
+<button type="button" class="btn btn-primary">
+<div id="left">LEFT</div>
+</button>
+
+------------
+
+<button type="button" class="btn btn-danger">
+<div id="right">RIGHT</div>
+</button>
 
 </body>

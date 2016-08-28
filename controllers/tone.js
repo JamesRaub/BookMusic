@@ -41,27 +41,37 @@ app.get('/subscribe', function(req, res) {
 
           for(var i = 0; i < tone.sentences_tone.length; i ++){
             var tmp = tone.sentences_tone[i].text;
-            tmp = tmp.replaceAll("\r","").replaceAll("\n","").replaceAll('\"','').replaceAll("[",'').replaceAll(']',"");
+            tmp = tmp.replaceAll("\r"," ").replaceAll("\n"," ").replaceAll('\"','').replaceAll("[",'').replaceAll(']',"");
             sentences.push(tmp);
           }
           //used for testing
+
+          //image scrolling
           var result = JSON.stringify(sentences, null, 2);
           console.log(result);
           res.send(result);
-       }
+
+
+       }//else
     });
   });
 });
+
 
 // app.get("/", function(req, res){
 //   res.send("Welcome!")
 // })
 
-app.use(express.static('../view'))
+app.use(express.static('../view'));
+
+app.use('/static', express.static('../static'));
+
+
 app.listen("3000", function(){
   console.log("Listening on port 3000")
 });
 // app.post();
+
 
 
 // var url="https://ia801405.us.archive.org/18/items/alicesadventures19033gut/19033.txt";
