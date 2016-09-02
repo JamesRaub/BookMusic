@@ -146,8 +146,11 @@ function readText(req, res, text) { // req, res, url){
             "joy": null,
             "sadness": null
           }
-
-          for (var element in data) {
+          var limit = Math.random()*100 % data.length;
+          var i = 0;
+          for (var element in  data) {
+            if(i == limit)
+              break
             if (element["tone_id"] == "anger") {
               values.anger == element.score;
             } else if (element["tone_id"] == "disgust") {
@@ -185,6 +188,30 @@ function readText(req, res, text) { // req, res, url){
   // });
 }
 
+
+app.get("/search_song", function(req, res){
+  var values = {
+    "anger": null,
+    "disgust": null,
+    "fear": null,
+    "joy": null,
+    "sadness": null
+  }
+  var musicValues = getMusicValues(values);
+  console.log("eeeeeeeee");
+
+  searchTracks(musicValues, function(err, out) {
+
+    console.log("eeedsadasdasdasdeeee");
+    data.url = out;
+    data.bug = "beetle";
+    console.log("dsadasdasdasds");
+    console.log(data);
+    var result = JSON.stringify(data, null, 2);
+    //console.log(result);
+    res.send(result);
+  });
+})
 app.post('/subscribe', function(req, res) {
   // var url = req.query['name'];
   // if(url){

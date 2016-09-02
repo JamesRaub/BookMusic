@@ -1,16 +1,60 @@
 #sentences_display {
-  width: 500px;
+  width: 650px;
   height: 500px;
   background-color: AntiqueWhite;
   border: 2px solid #fff;
   border-radius: 5px;
   padding: 20px;
   overflow: hidden;
+  margin: 0px auto 0px auto;
+  list-style-type: none;
 }
 
 #sentences_display li {
-  width: 500px;
+  width: 650px;
   height: 500px;
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
+  margin: 5px auto 5px auto;
+}
+
+
+#super_container {
+  width: 60%;
+  margin: 0px auto;
+  height: 100px;
+  text-align: -align: center;
+  margin-top: 100px;
+}
+
+
+header{
+  text-align: center;
+}
+#anger {
+  color: red;
+
+}
+#sadness {
+  color: blue;
+}
+#joy {
+  color: pink;
+}
+
+#disgust {
+  color: green;
+}
+
+#subscribe_frm > * {
+  margin: 5px auto;
+}
+
+.dz-default, .dz-message {
+  visibility: hidden;
+  margin-left: 250px;
+}
+
+li {
+  text-decoration: none;
 }
