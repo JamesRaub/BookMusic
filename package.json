@@ -2,9 +2,9 @@
   "name": "bookmusic",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "controllers/index.js",
   "scripts": {
-    "start": "controllers/index.js",
+    "start": "node controllers/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +21,14 @@
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "path": "^0.12.7",
+<<<<<<< HEAD
     "superagent": "^2.0.0"
+=======
+    "watson-developer-cloud": "2.2.0",
+    "lodash": "2.14.x",
+    "express-fileupload": "^0.0.0",
+    "request": "2.14.x",
+    "request-promise": "2.14.x"
+>>>>>>> 8445f076218cfb59eb9eed48333a9161ab868fda
   }
 }
