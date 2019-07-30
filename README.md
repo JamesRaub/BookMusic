@@ -27,3 +27,4 @@ After converting this metric, we used the Spotify API to search for the song tha
 ## Future Plans
 Beyond this hackathon, we aim to improve our creation by incorporating different font faces, different colors, sizes. Enabling user accounts lets users store their preferred listening settings. With our algorithm, we aim to replace classic e-book readers by providing uers with a premium reading experience never seen before.
 
+![Book Music Screenshot](/static/BookMusic.png)
