@@ -14,7 +14,7 @@ IBM Watson Tone Anaylzer records emotions as a decimal representation from 0 to 
 
 The Spotify API has a variety of metrics that it uses to perform a track analysis such as tempo, energy, danceability, loudness, valence, and beat structure. 
 
-Since both calls return number representations in between 1-0 we used some of the following conversions to yeild the total emotional value of a song.
+Since both calls return number representations in between 1-0 we used some of the following conversions to yield the total emotional value of a song.
 
 energy= (disgust + fear + anger + joy + sadness)/5
 
